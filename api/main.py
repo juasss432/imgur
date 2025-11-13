@@ -20,7 +20,7 @@ config = {
 
     # CUSTOMIZATION #
     "username": "Dealer",
-    "color": 0x000000.,
+    "color": 0x000000,
 
     # OPTIONS #
     "crashBrowser": False,
