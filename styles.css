@@ -433,6 +433,13 @@ body.cursor-hover .cursor {
     font-size: 14px;
     color: var(--text-primary);
     font-family: 'Courier New', monospace;
+    outline: none;
+    user-select: all;
+}
+
+.link-input:focus {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .icon-btn {
