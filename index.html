@@ -3,52 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Uploader</title>
+    <title>Media Share - Upload & Share Instantly</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>📸 Image Uploader</h1>
-            <p class="subtitle">Generate shareable image links instantly</p>
+    <div class="cursor"></div>
+    <div class="cursor-glow"></div>
+    
+    <div class="background-grid"></div>
+    
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <span class="logo-icon">◆</span>
+                <span class="logo-text">MediaShare</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active">Upload</a>
+                <a href="#" class="nav-link">About</a>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <div class="hero-section">
+            <h1 class="title">
+                <span class="gradient-text">Share Your Media</span>
+            </h1>
+            <p class="subtitle">Upload images, videos, and GIFs. Get instant shareable links.</p>
         </div>
         
-        <div class="upload-section">
+        <div class="upload-card">
             <div class="upload-area" id="uploadArea">
-                <div class="upload-icon">☁️</div>
-                <div class="upload-text">Click to upload an image</div>
-                <div class="upload-hint">PNG, JPG, GIF up to 10MB</div>
-                <input type="file" id="fileInput" accept="image/*" hidden>
+                <div class="upload-content">
+                    <div class="upload-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                    </div>
+                    <h3 class="upload-title">Drop your media here</h3>
+                    <p class="upload-text">or click to browse</p>
+                    <div class="upload-formats">
+                        <span class="format-badge">Images</span>
+                        <span class="format-badge">Videos</span>
+                        <span class="format-badge">GIFs</span>
+                    </div>
+                </div>
+                <input type="file" id="fileInput" accept="image/*,video/*,.gif" hidden>
             </div>
             
             <div class="divider">
-                <span>or paste image URL</span>
+                <span class="divider-text">or paste a URL</span>
             </div>
             
-            <div class="input-group">
-                <input type="text" class="url-input" id="urlInput" placeholder="https://example.com/image.jpg">
-                <button class="generate-btn" id="generateBtn">Generate Link</button>
+            <div class="url-section">
+                <div class="input-wrapper">
+                    <svg class="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                    </svg>
+                    <input type="text" class="url-input" id="urlInput" placeholder="https://example.com/media.jpg">
+                </div>
+                <button class="generate-btn" id="generateBtn">
+                    <span class="btn-text">Generate Link</span>
+                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
             </div>
         </div>
         
-        <div class="result-section" id="resultSection">
-            <div class="result-label">Your Shareable Link</div>
-            <div class="result-box">
-                <input type="text" class="result-input" id="resultInput" readonly>
-                <button class="copy-btn" id="copyBtn">Copy</button>
+        <div class="result-card" id="resultCard">
+            <div class="result-header">
+                <h3 class="result-title">Your Shareable Link</h3>
+                <div class="result-badge">Ready</div>
             </div>
-            <div class="preview-section" id="previewSection">
-                <div class="preview-label">Preview</div>
-                <img id="previewImage" alt="Preview">
+            
+            <div class="result-content">
+                <div class="link-box">
+                    <input type="text" class="link-input" id="linkInput" readonly>
+                    <button class="icon-btn copy-btn" id="copyBtn" title="Copy to clipboard">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="preview-container" id="previewContainer">
+                    <div class="preview-label">Preview</div>
+                    <div class="preview-content" id="previewContent">
+                        <!-- Preview will be inserted here -->
+                    </div>
+                </div>
             </div>
         </div>
         
-        <div class="footer">
-            <p>Made by Dealer</p>
+        <div class="info-cards">
+            <div class="info-card">
+                <div class="info-icon">⚡</div>
+                <h4>Instant Upload</h4>
+                <p>Get shareable links in seconds</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">🔒</div>
+                <h4>Secure</h4>
+                <p>Your media is encoded safely</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">🎬</div>
+                <h4>All Formats</h4>
+                <p>Images, videos, and GIFs</p>
+            </div>
         </div>
-    </div>
+    </main>
     
-    <div class="toast" id="toast">Copied to clipboard!</div>
+    <footer class="footer">
+        <p>Made with <span class="heart">♥</span> by Dealer</p>
+    </footer>
+    
+    <div class="toast" id="toast">
+        <svg class="toast-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span class="toast-text"></span>
+    </div>
     
     <script src="script.js"></script>
 </body>
